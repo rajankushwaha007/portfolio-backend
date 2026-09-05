@@ -4,11 +4,11 @@ const cors = require("cors");
 
 const app = express();
 
-// CORS - allow Vercel deployments
+// CORS
 app.use(cors({
-    origin: /^https:\/\/rajan-portfolio.*\.vercel\.app$/,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true
+  origin: "https://rajan-portfolio-zk98.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
 }));
 
 app.use(express.json());
@@ -19,11 +19,11 @@ const ContactRouter = require("./routes/contact.route");
 app.use("/api/contact", ContactRouter);
 
 app.get("/", (req, res) => {
-    res.send("Portfolio Backend is Running");
+  res.send("Portfolio Backend is Running");
 });
 
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server is Running on port ${PORT}`);
+  console.log(`Server is Running on port ${PORT}`);
 });
