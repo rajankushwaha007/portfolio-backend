@@ -4,9 +4,15 @@ const cors = require("cors");
 
 const app = express();
 
-const cors = require("cors")
-
+// CORS
 app.use(cors({
+    origin: "https://rajan-portfolio-zk98.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+}));
+
+// Handle preflight requests
+app.options("*", cors({
     origin: "https://rajan-portfolio-zk98.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
