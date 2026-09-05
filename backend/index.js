@@ -1,20 +1,16 @@
 require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 
 const app = express();
 
-app.use(
-    cors({
-        origin: [
-            "http://localhost:5173",
-            "https://rajan-portfolio-vma4.vercel.app"
-        ],
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"]
-    })
-);
+const cors = require("cors")
+
+app.use(cors({
+    origin: "https://rajan-portfolio-zk98.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
