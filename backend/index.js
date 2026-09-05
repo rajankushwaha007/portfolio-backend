@@ -4,16 +4,9 @@ const cors = require("cors");
 
 const app = express();
 
-// CORS
+// CORS - allow Vercel deployments
 app.use(cors({
-    origin: "https://rajan-portfolio-zk98.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true
-}));
-
-// Handle preflight requests
-app.options("*", cors({
-    origin: "https://rajan-portfolio-zk98.vercel.app",
+    origin: /^https:\/\/rajan-portfolio.*\.vercel\.app$/,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
 }));
